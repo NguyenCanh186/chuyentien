@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+
+</head>
+<body>
+<table><tr>
+    <th>Amount</th>
+    <th>From Currency</th>
+    <th>To Currency</th>
+    <th></th>
+</tr>
+
+<td><input type="number" id="soNhap"></td>
+<td><select id="selectFrom">
+    <option value="vnd">VNĐ</option>
+    <option value="usd">USD</option>
+</select></td>
+<td><select id="selectTo">
+    <option value="vnd">VNĐ</option>
+    <option value="usd">USD</option>
+</select></td>
+    <td><button onclick="chuyenTien()">Convert</button>
+    <p id="moneyConvert"></p></td>
+    <script>
+        function chuyenTien() {
+            let soNhap = document.getElementById("soNhap").value;
+            let selectFrom = document.getElementById("selectFrom").value;
+            let selectTo = document.getElementById("selectTo").value;
+            let tien;
+            if (selectFrom == selectTo) {
+                alert("Lựa chọn 2 select khác nhau!");
+            }
+            if (selectFrom == "vnd" && selectTo == "usd") {
+                tien = soNhap / 23000;
+                document.getElementById("moneyConvert").innerText = "Result: " + tien;
+            }
+            if (selectTo == "vnd" && selectFrom == "usd") {
+
+                tien = soNhap * 23000;
+                document.getElementById("moneyConvert").innerText = "Result: " + tien;
+            }
+        }
+    </script>
+
+</table>
+
+</body>
+</html>
